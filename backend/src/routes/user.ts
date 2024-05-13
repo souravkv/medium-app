@@ -28,17 +28,24 @@ userRouter.post('/signup', async (c) => {
 
 
     const body = await c.req.json()
+    try {
 
-    const user = await prisma.user.create({
-        data: {
-            email: body.email,
-            password: body.password
-        }
-    })
-    const token = await sign({ id: user.id }, c.env.JWT_SECRET)
+        const user = await prisma.user.create({
+            data: {
+                email: body.email,
+                password: body.password
+            }
+        })
 
+        const token = await sign({ id: user.id }, c.env.JWT_SECRET)
+        return c.json({ token: token + "sda" })
+    }
 
-    return c.json({ jwt: token + "sda" })
+    catch (e) {
+        c.status(500)
+        return c.json({ err: "user already exist" })
+    }
+
 })
 
 userRouter.post('/signin', async (c) => {
@@ -71,5 +78,5 @@ userRouter.post('/signin', async (c) => {
 
     const token = await sign({ id: user.id }, c.env.JWT_SECRET)
 
-    return c.json({ jwt: token })
+    return c.json({ token: token })
 })

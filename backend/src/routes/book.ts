@@ -23,7 +23,7 @@ bookRouter.use('/blog/*', async (c, next) => {
     const jwt = c.req.header('Authorization');
     if (!jwt) {
         c.status(401);
-        return c.json({ error: "unauthorized myran" })
+        return c.json({ error: "unauthorized  jwt not foun token" })
     }
 
     const token = jwt.split(' ')[1];
@@ -48,11 +48,11 @@ bookRouter.get('/blog/all', async (c) => {
 
     // @ts-ignore
 
-    const blog = await prisma.post.findMany({})
+    const blogs = await prisma.post.findMany({})
 
 
 
-    return c.json(blog)
+    return c.json({ blogs })
 })
 
 

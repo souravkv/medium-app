@@ -4,6 +4,7 @@ import { withAccelerate } from '@prisma/extension-accelerate'
 import { verify, sign, decode } from 'hono/jwt'
 import { userRouter } from './routes/user'
 import { bookRouter } from './routes/book'
+import { cors } from 'hono/cors'
 
 
 const app = new Hono<{
@@ -13,6 +14,8 @@ const app = new Hono<{
   }
 }>()
 //old secret was secret
+
+app.use('*', cors());
 
 app.route('api/v1/user', userRouter)
 app.route('api/v1/book', bookRouter)
