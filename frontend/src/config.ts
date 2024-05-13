@@ -1,0 +1,1 @@
+export const BACKENDURL = "https://backend.spexod.workers.dev"
