@@ -1,8 +1,8 @@
-import React from 'react'
+
 import { HiDotsHorizontal } from "react-icons/hi";
 import { BsBookmarkDash } from "react-icons/bs";
 import { HiArrowPathRoundedSquare } from "react-icons/hi2";
-function InfoCard({ author, title, desc, cata }) {
+function InfoCard({ author, title, desc, }: { author: string, title: string, desc: string }) {
     return (
         <div className='  w-[47vw] mt-8'>
             {/* Programming Principles They Dont Teach */}

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Quotes from '../components/Quotes'
 import InputBox from '../components/InputBox'
 import { SignupType } from '@spexod/commonapp'
@@ -8,6 +8,7 @@ import { BACKENDURL } from '../config'
 import { toast } from 'sonner'
 
 function SignUp() {
+    const navigate = useNavigate()
 
 
 
@@ -25,7 +26,7 @@ function SignUp() {
         try {
             console.log(JSON.stringify(postInputs) + "kkkkk")
             const response = await axios.post(`${BACKENDURL}/api/v1/user/signup`, postInputs)
-            const jwt = response.data;
+            const jwt = response.data.token
             localStorage.setItem('token', jwt)
             toast.success("SignUp Successful !! ")
             navigate('/blog')
@@ -53,7 +54,7 @@ function SignUp() {
                     <div className=' text-center font-black text-3xl'>Create An Account</div>
                     <div className=' flex   items-center mt-3 mb-5  justify-center'>
                         <div className=' font-thin  '>Already have an account?</div>
-                        <Link className=' underline text-md px-2'> Login</Link>
+                        <Link to={'/signin'} className=' underline text-md px-2'> Login</Link>
 
                     </div>
 

@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import InputBox from '../components/InputBox'
-import { PiMosque } from 'react-icons/pi'
+
 import axios from 'axios'
 import { BACKENDURL } from '../config'
 

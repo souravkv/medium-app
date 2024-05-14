@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Appbar from '../components/Appbar'
 import InfoCard from '../components/InfoCard'
 import { useBlogs } from '../components/hooks'
@@ -6,8 +6,10 @@ import Post from './Post';
 
 function Blog() {
 
-    const { loading, blogs } = useBlogs();
+    const { loading, blogs }: { blogs: { title: string; content: string }[]; loading: boolean } = useBlogs();
     const [post, setpost] = useState(false);
+
+
 
 
     if (loading) {
