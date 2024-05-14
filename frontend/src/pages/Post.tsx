@@ -5,7 +5,7 @@ import axios from 'axios'
 import { BACKENDURL } from '../config'
 
 
-function Post({ onclick }) {
+function Post({ onclick }: { onclick: any }) {
 
     type postinf = {
         title: string,
@@ -39,6 +39,7 @@ function Post({ onclick }) {
 
                     <div className=' justify-center w-100 text-center font-extrabold text-3xl p-3'> Post</div>
                     <div className=' w-full flex justify-center'>
+                        {/* @ts-ignore */}
 
                         <InputBox onchange={(e) => {
                             setpostinfo({
@@ -46,8 +47,8 @@ function Post({ onclick }) {
                                 title: e.target.value
                             })
                         }} placer='Title...' title='Title' />
-
-                        <InputBox onchange={(e) => {
+                        {/* @ts-ignore */}
+                        <InputBox onchange={(e: any) => {
                             setpostinfo({
                                 ...postinfo,
                                 content: e.target.value

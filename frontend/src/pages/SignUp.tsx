@@ -32,7 +32,7 @@ function SignUp() {
             navigate('/blog')
 
         }
-        catch (e) {
+        catch (e: any) {
 
             if (e.response.status == 411)
 
@@ -58,19 +58,21 @@ function SignUp() {
 
                     </div>
 
-
+                    {/* @ts-ignore */}
                     <InputBox title='Username' placer='Enter your username' onchange={(e) => {
                         setpostInputs({
                             ...postInputs,
                             name: e.target.value
                         })
                     }} />
+                    {/* @ts-ignore */}
                     <InputBox title='Email' placer='Sui@mgil.com' onchange={(e) => {
                         setpostInputs({
                             ...postInputs,
                             email: e.target.value
                         })
                     }} />
+                    {/* @ts-ignore */}
                     <InputBox title='Password' type='password' placer='' onchange={(e) => {
                         setpostInputs({
                             ...postInputs,

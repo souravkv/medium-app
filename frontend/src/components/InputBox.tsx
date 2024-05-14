@@ -1,6 +1,6 @@
 
 
-function InputBox({ placer, onchange, title, type }: { placer: string; type?: string; title: string; onchange: (e) => {} }) {
+function InputBox({ placer, onchange, title, type }: { placer: string; type?: string; title: string; onchange: (e: any) => {} }) {
     return (
         <div>
             <div className="w-72">
