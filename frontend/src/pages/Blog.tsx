@@ -6,7 +6,7 @@ import Post from './Post';
 
 function Blog() {
 
-    const { loading, blogs }: { blogs: { title: string; content: string }[]; loading: boolean } = useBlogs();
+    const { loading, blogs }: { blogs: { title: string; content: string; id: string }[]; loading: boolean } = useBlogs();
     const [post, setpost] = useState(false);
 
 
@@ -42,7 +42,9 @@ function Blog() {
 
                         <InfoCard author='Ramachandran Nayar' title='Programming Principles They Dont Teach ' desc='Inroduction to important principles you should know ' />
                         {blogs.map(blog =>
-                            <InfoCard author='Mohammad Afsal' title={blog.title} desc={blog.content} />
+
+                            // ts-ignore
+                            <InfoCard key={blog.id} author='Mohammad Afsal' title={blog.title} desc={blog.content} />
 
                         )}
 
